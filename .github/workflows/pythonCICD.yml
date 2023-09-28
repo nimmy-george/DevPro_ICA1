@@ -25,8 +25,8 @@ jobs:
           
       - name: Build and Test
         run: |
-          mkdir -p logs
-          python main.py > logs/build.log 2>&1
+          
+          python main.py 
           
       - name: Archive log files
         uses: actions/upload-artifact@v2
