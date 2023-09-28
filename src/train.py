@@ -1,6 +1,6 @@
 import tensorflow as tf
-from src.data_preparation import load_cifar10_data
-from src.model import create_cnn_model
+from data_preparation import load_cifar10_data
+from model import create_cnn_model
 
 # Load CIFAR-10 data
 x_train, y_train, x_test, y_test = load_cifar10_data()
