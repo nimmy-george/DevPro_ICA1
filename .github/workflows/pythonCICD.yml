@@ -1,0 +1,36 @@
+name: Python CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8  # Choose the Python version you need
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build and Test
+        run: |
+          mkdir -p logs
+          python your_build_script.py > logs/build.log 2>&1
+          pytest  # Replace with your testing command
+
+      - name: Archive log files
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-logs
+          path: logs
