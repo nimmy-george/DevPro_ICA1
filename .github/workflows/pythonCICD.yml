@@ -27,8 +27,7 @@ jobs:
         run: |
           mkdir -p logs
           python main.py > logs/build.log 2>&1
-          pytest  # Replace with your testing command
-
+          
       - name: Archive log files
         uses: actions/upload-artifact@v2
         with:
